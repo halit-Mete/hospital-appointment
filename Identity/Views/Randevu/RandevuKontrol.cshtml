@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Randevu Takip";
+}
+
+<h2>Randevu Takip</h2>
+
+<hr />
+
+<form asp-action="RandevuKontrol" method="post">
+    <div class="form-group mb-3">
+        <label for="hastaTc">Hasta TC:</label>
+        <input type="text" name="hastaTC" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Randevuları Kontrol Et</button>
+</form>
+
+
+@if (ViewBag.Mesaj != null)
+{
+    <div  class="alert alert-warning" mt-3">
+        @ViewBag.Mesaj
+    </div>
+}
