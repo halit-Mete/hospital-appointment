@@ -1,0 +1,39 @@
+﻿@model Identity.Models.Randevu
+
+@{
+    ViewData["Title"] = "Randevularım";
+}
+
+@if (Model != null)
+{
+    <h2>Randevularım</h2>
+
+    <hr />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Hasta Adı</th>
+                <th>Hasta Tc</th>
+                <th>Doktor Adı</th>
+                <th>Poliklinik Adı</th>
+                <th>Randevu Tarihi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.HastaAd</td>
+                <td>@Model.HastaTc</td>
+                <td>@Model.Doktor?.DoktorAd</td>
+                <td>@(Model.Doktor?.Poliklinik?.PoliklinikAd ?? "Belirtilmemiş")</td>
+                <td>@Model.RandevuTarih.ToString("dd/MM/yyyy HH:mm")</td>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    <div  class="alert alert-warning mt-3">
+        @ViewBag.Mesaj["msj"]
+    </div>
+}
