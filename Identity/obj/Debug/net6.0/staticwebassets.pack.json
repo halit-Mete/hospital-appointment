@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\halit\\OneDrive\\Masaüstü\\MAİN Temiz - Kopya - Kopya (3)\\Identity\\Identity\\wwwroot\\img\\Logo.png",
+      "PackagePath": "staticwebassets\\img\\Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\halit\\OneDrive\\Masaüstü\\MAİN Temiz - Kopya - Kopya (3)\\Identity\\Identity\\wwwroot\\img\\home.png",
+      "PackagePath": "staticwebassets\\img\\home.png"
+    },
+    {
+      "Id": "C:\\Users\\halit\\OneDrive\\Masaüstü\\MAİN Temiz - Kopya - Kopya (3)\\Identity\\Identity\\wwwroot\\img\\home2.png",
+      "PackagePath": "staticwebassets\\img\\home2.png"
+    },
+    {
       "Id": "C:\\Users\\halit\\OneDrive\\Masaüstü\\MAİN Temiz - Kopya - Kopya (3)\\Identity\\Identity\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

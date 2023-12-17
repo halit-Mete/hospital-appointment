@@ -7,66 +7,79 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Identity.styles.css" asp-append-version="true" />
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-custom border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Medikano</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/logo.png" style="width: 130px; display: inline-block;" alt="Logo" />
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav">
+                        @if (!User.IsInRole("admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index"><strong>Anasayfa</strong></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy"><strong>İletişim</strong></a>
+                            </li>
+                            
+                        }
                         @if (User.Identity?.IsAuthenticated == true) // giriş yaptığında gözüküyor fakat altta admin olanlar görebilmesini sağladık
                         {    
                             @if(User.IsInRole("admin")) // linkleri kapatıyor fakat erişimi kapatmak için UsersControllerdan halletmek lazım
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Users" asp-action="Index">Kullanıcılar</a>
+                                    <a class="nav-link text-dark" asp-controller="Users" asp-action="Index"><strong>Kullanıcılar</strong></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Roles" asp-action="Index">Roller</a>
+                                    <a class="nav-link text-dark" asp-controller="Roles" asp-action="Index"><strong>Roller</strong></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Doktors" asp-action="Index">Doktorlar</a>
+                                    <a class="nav-link text-dark" asp-controller="Doktors" asp-action="Index"><strong>Doktorlar</strong></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Polikliniks" asp-action="Index">Poliklinikler</a>
+                                    <a class="nav-link text-dark" asp-controller="Polikliniks" asp-action="Index"><strong>Poliklinikler</strong></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Randevu" asp-action="Randevular">Randevular</a>
+                                    <a class="nav-link text-dark" asp-controller="Randevu" asp-action="Randevular"><strong>Randevular</strong></a>
                                 </li>
                             }
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Randevu" asp-action="RandevuAl"><strong>Randevu Al</strong></a>
+                            </li>
                             @if (!User.IsInRole("admin"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Randevu" asp-action="RandevuKontrol">Randevularım</a>
+                                    <a class="nav-link text-dark" asp-controller="Randevu" asp-action="RandevuKontrol"><strong>Randevularım</strong></a>
                                 </li>
                             }
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Randevu" asp-action="RandevuAl">Randevu Al</a>
-                                </li>
                         }
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         @if(User.Identity?.IsAuthenticated == true) // giriş yaptığında gözükmesini sağlıyor
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark">Merhaba, @User.Identity.Name</a>
+                                <a class="nav-link text-dark"><strong>Merhaba, @User.Identity.Name</strong></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Logout">Çıkış Yap</a>
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Logout"><strong>Çıkış Yap</strong></a>
                             </li>
                         }
                         else
                         { 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Login"><strong>Giriş Yap</strong></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Users" asp-action="Create">Kaydol</a>
+                                <a class="nav-link text-dark" asp-controller="Users" asp-action="Create"><strong>Kaydol</strong></a>
                             </li>
                         }
                     </ul>
@@ -82,7 +95,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - Yapımcı - <a href="https://github.com/halit-Mete" target="_blank">Github</a> - Tüm Haklar Saklıdır.
+            &copy; 2023 - Yapımcı - <a href="https://github.com/halit-Mete" target="_blank" style=" text-decoration: none;">Github</a> - Tüm Haklar Saklıdır.
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

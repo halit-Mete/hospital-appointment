@@ -24,6 +24,7 @@ namespace Identity.Controllers
             _signInManager = signInManager;
         }
 
+        // Giriş yap kısmı
         public IActionResult Login()
         {
             return View();

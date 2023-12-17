@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Identity.Controllers
 {
-	[Authorize(Roles = "admin")]
+	[Authorize(Roles = "admin")] // admin dışındaki kullanıcılar giremez
 	public class RolesController : Controller
     {
         private readonly RoleManager<AppRole> _roleManager;

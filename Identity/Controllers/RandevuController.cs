@@ -1,6 +1,4 @@
-﻿// RandevuController.cs
-
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Identity.Models;
 using System.Linq;
@@ -20,6 +18,7 @@ namespace Identity.Controllers
             _context = context;
         }
 
+        // Randevu al kısmı
         public IActionResult RandevuAl()
         {
             var doktorlar = _context.Doktorlar
@@ -91,8 +90,7 @@ namespace Identity.Controllers
             return View(randevular);
         }
 
-        // RandevuController.cs
-
+        // Adminin yapabileceği silme işlemi
         [HttpPost]
         public IActionResult Delete(int id)
         {
