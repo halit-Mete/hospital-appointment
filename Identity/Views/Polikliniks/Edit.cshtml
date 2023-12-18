@@ -1,0 +1,32 @@
+﻿@model Identity.Models.Poliklinik
+
+@{
+    ViewData["Title"] = "Düzenle";
+}
+
+<h2>Polikliniği Düzenle</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="PoliklinikId" />
+            <div class="form-group mb-3">
+                <label asp-for="PoliklinikAd" class="control-label"></label>
+                <input asp-for="PoliklinikAd" class="form-control" />
+                <span asp-validation-for="PoliklinikAd" class="text-danger"></span>
+            </div>
+            <div class="form-group  mb-3">
+                <Button type="submit" class="btn btn-primary">Kaydet</Button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-secondary" asp-action="Index">Geri Dön</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

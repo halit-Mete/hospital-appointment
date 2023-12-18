@@ -1,0 +1,31 @@
+﻿@model AppRole
+
+@{
+    ViewData["Title"] = "Oluştur";
+}
+
+<h2>Rol Oluştur</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-secondary" asp-action="Index">Geri Dön</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
