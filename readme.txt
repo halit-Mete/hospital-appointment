@@ -1,0 +1,1 @@
+Proje bir hastanenin sisteminin internet sitesinin çalışma prensibine göre tasarlanmak istenmiştir
